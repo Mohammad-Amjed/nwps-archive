@@ -9,6 +9,8 @@ import PostPage from './PostPage';
 import Footer from './Footer';
 import Footer2 from './Footer2';
 import SidePosts from './SidePosts';
+import Signup from './Signup';
+
 
 
 
@@ -24,7 +26,9 @@ ReactDOM.render(
    <Footer2 />
     
     </Route>
-    
+    <Route  path="/Signup">
+    <Signup />
+    </Route>
     
     </Router>
     
