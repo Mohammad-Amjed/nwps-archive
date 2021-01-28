@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
     return (
-        <div className="post-content">
+        <div className="post-content" data-aos="zoom-in" data-aos-delay="200">
         <div className="post-image">
             <div>
                 <img src={img} className="img" alt="blog1" />
