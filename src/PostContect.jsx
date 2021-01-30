@@ -1,8 +1,30 @@
-import React from 'react'
-import {Link} from "react-router-dom";
+import React  from 'react'
+
+import { useHistory, Link } from "react-router-dom";
+import { useStateValue } from './StateProvider';
 
 
 function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
+    const [{post}, dispatch] = useStateValue();
+    // console.log(post)
+    const history = useHistory();
+    const change = () => {
+        
+        dispatch({
+          type: "POST_INFO",
+          item: {
+            img : img,
+            Admin : Admin,
+            Date : Date,
+            CommentsNo : CommentsNo,
+            Title : Title,
+            Body : Body
+          },
+         
+        });
+        history.push("/post");
+      };
+
     return (
         <div className="post-content" data-aos="zoom-in" data-aos-delay="200">
         <div className="post-image">
@@ -19,7 +41,8 @@ function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
             <Link to="./about"></Link><a href="#">{Title}</a>
             <p>{Body}
             </p>
-           <Link to="/post"> <button className="btn post-btn">Read More &nbsp; <i className="fas fa-arrow-right"></i></button></Link>
+            <button className="btn post-btn" onClick={change}>Read More &nbsp; <i className="fas fa-arrow-right"></i></button> 
+       
         </div>
        
     </div>

@@ -2,36 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { StateProvider } from "./StateProvider";
 import reportWebVitals from './reportWebVitals';
-import{BrowserRouter as Router, Route } from 'react-router-dom';
-import Nav from './Nav';
-import PostPage from './PostPage';
-import Footer from './Footer';
-import Footer2 from './Footer2';
-import SidePosts from './SidePosts';
-import Signup from './Signup';
+import reducer, { initialState } from './reducer';
+
 
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-    <Route exact path="/">
-    <App />
-    </Route>
-    <Route path="/post">
-    <Nav/>
-    <PostPage/>
-   <Footer2 />
-    
-    </Route>
-    <Route  path="/Signup">
-    <Signup />
-    </Route>
-    
-    </Router>
-    
+    <StateProvider initialState={initialState} reducer={reducer}>
+   <App />
+   </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
