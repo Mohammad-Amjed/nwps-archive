@@ -418,7 +418,11 @@ section .container .owl-nav {
   border-radius: 3rem;
   margin: 0.4rem 0.6rem;
 }
-
+.limit {
+  margin-bottom: 10px;
+  height: 40px;
+  overflow: hidden;
+}
 /* -------x------- Sidebar -----------x----------- */
 
 /* ---------x-------  Content -----x----- */

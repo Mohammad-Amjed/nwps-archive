@@ -5,6 +5,19 @@ import { useStateValue } from './StateProvider';
 
 
 function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
+
+    // document.addEventListener('DOMContentLoaded', function(selector, maxLength) {
+    //     maxLength = 100;
+    //     selector = "limit"
+    //     const element =  document.getElementByClassName(selector),
+    //     truncated = element.innerText;
+
+    // if (truncated.length > maxLength) {
+    //     truncated = truncated.substr(0,maxLength) + '...';
+    // }
+    // return truncated;
+    //  }, false);
+    
     const [{post}, dispatch] = useStateValue();
     // console.log(post)
     const history = useHistory();
@@ -39,7 +52,7 @@ function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
         </div>
         <div className="post-title">
             <Link to="./about"></Link><a href="#">{Title}</a>
-            <p>{Body}
+            <p className="limit">{Body}
             </p>
             <button className="btn post-btn" onClick={change}>Read More &nbsp; <i className="fas fa-arrow-right"></i></button> 
        
