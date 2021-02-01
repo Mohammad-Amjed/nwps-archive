@@ -119,7 +119,7 @@ p {
 }
 
 .collapse {
-  height: 30rem;
+  height: 33rem;
 }
 
 .nav .nav-items {
@@ -592,3 +592,105 @@ footer.footer .move-up span:hover {
 }
 
 /*       x          Post Page style            x                */
+
+/*        post form style                                   */
+.blogBody {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+}
+.blogBox {
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+}
+.blogBox .title {
+  font-size: 25px;
+  font-weight: 500;
+  /* position: relative; */
+  padding-bottom: 20px;
+}
+
+/* .input .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+.input .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+} */
+.user-details .input-box .input {
+  font: 400 15px "Gotham SSm A", "Gotham SSm B", sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: calc(100% - 25px);
+  height: 45px;
+  padding: 0 10px;
+  color: #5c5c5c;
+  border: 1px solid #ddd4d4;
+  border-radius: 0;
+  background: #fbfbfb;
+  /* height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px; */
+  transition: all 0.3s ease;
+}
+
+form .button {
+  height: 45px;
+  margin: 35px 0;
+}
+form .button button {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 15px 0 30px;
+  padding: 14px;
+  text-decoration: none;
+
+  color: #57068c;
+  border: 1px solid #57068c !important;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  font-family: var(--Lexend) !important;
+
+  transition: all 0.3s ease;
+}
+form .button button:hover {
+  transform: scale(0.99);
+  background-color: #57068c;
+  color: #fff;
+}
+
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.user-details::-webkit-scrollbar {
+  width: 5px;
+}
+
+textarea {
+  font: 400 15px "Gotham SSm A", "Gotham SSm B", sans-serif;
+  display: block;
+  overflow: auto;
+  width: calc(100% - 48px);
+  height: 80px;
+  padding: 15px 10px;
+  resize: vertical;
+  color: #5c5c5c;
+  border: 1px solid #ddd4d4;
+  outline: 0;
+  background: #fbfbfb;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}

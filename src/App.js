@@ -6,6 +6,7 @@ import Home from "./Home"
 import Nav from './Nav'
 import PostPage from './PostPage'
 import Signup from './Signup'
+import Blog from "./Blog"
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
     </Route>
     <Route  path="/Signup">
     <Signup />
+    </Route>
+    <Route  path="/Blog">
+      <Nav />
+    <Blog />
+    <Footer2 />
     </Route>
     
     </Router>
