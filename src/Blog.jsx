@@ -1,49 +1,63 @@
 import React, { useState } from 'react'
-import { db, timestamp } from './Firebase'
+import { db, timestamp, projectStorage } from './Firebase'
 import { v4 as uuidv4 } from 'uuid';
-import ProgressBar from './ProgressBar';
-// import "./css/Blog.css"
-
 function Blog() {
-
-  const [file, setFile] = useState(null);
-  const [error, setError] = useState(null);
-
-  const types = ['image/png', 'image/jpeg'];
-
-  const handleChange = (e) => {
-    let selected = e.target.files[0];
-
-    if (selected && types.includes(selected.type)) {
-      setFile(selected);
-      setError('');
-    } else {
-      setFile(null);
-      setError('Please select an image file (png or jpg)');
-    }
+  const [image, setImage] = useState("");
+  const [caption, setCaption] = useState("");
+  const [progress, setProgress] = useState(0)
+  
+  function handleChange (e){
+      if  (e.target.files[0]){
+          setImage(e.target.files[0]);
+      }
   }
-;
+  function handleUpload(){
+    const uploadTask =  projectStorage.ref(`images/${image.name}`).put(image)
+      uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+              const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) *  100
+               );
+              setProgress(progress);
+  
+             },
+             (error) => {
+              console.log(error);
+              alert(error.message);
+              },
+              () => {
+                  projectStorage
+                  .ref("images")
+                  .child(image.name)
+                  .getDownloadURL()
+                  .then(url => {
+                    
+                      db
+                      .collection("posts")
+                      .doc(uuidv4())
+                      .set({
+                        body,
+                        image: url,
+                        title,
+                        date:timestamp(),
+                      }).then()
+                              setProgress(0);
+                              setImage(null);
+                  })
+              }
+  
+          )
+    
+  }
   const initialState = ""
   const [date, setDate] = useState(initialState)
   const [body, setBody] = useState(initialState)
-  const [image, setImage] = useState(initialState)
+ 
   const [title, setTitle] = useState(initialState)
-  const id = uuidv4();
-  console.log(id)
-  const save = () => {
-    setDate(timestamp)
-    
-    db
-      .collection("posts")
-      .doc(uuidv4())
-      .set({
-        body,
-        image,
-        title,
-        date,
-      })
-      .then();
-};
+  
+  
+
 
   
     return (
@@ -54,15 +68,8 @@ function Blog() {
             <form action="#">
               <div className="user-details">
                 <div className="input-box">
-                <label>
-                  <input type="file" onChange={handleChange} />
-                  <span>+</span>
-                </label>
-                <div className="output">
-                  { error && <div className="error">{ error }</div>}
-                  { file && <div>{ file.name }</div> }
-                  { file && <ProgressBar file={file} setFile={setFile} /> }
-                </div>
+                     <input type="file" onChange={handleChange} />
+
                 </div>
                
                 <div className="input-box">
@@ -81,7 +88,7 @@ function Blog() {
               </div>
             
               <div className="button">
-                <button type="submit" onClick={save}> Sumbit  <i class="fas fa-angle-right"></i></button>
+                <button type="submit" onClick={handleUpload}> Sumbit  <i class="fas fa-angle-right"></i></button>
               </div>
             </form>
           </div>
