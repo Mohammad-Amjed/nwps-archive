@@ -291,11 +291,14 @@ section .container .owl-nav {
   border-radius: 3rem;
 }
 
-.site-content .post-content > .post-image > div {
+.site-content .post-content > .post-image {
+  max-height: 375px;
   overflow: hidden;
 }
 
 .site-content .post-content > .post-image .img {
+  /* max-height: 300px;
+  overflow: hidden; */
   width: 100%;
   transition: all 1s ease;
 }
@@ -320,9 +323,15 @@ section .container .owl-nav {
 }
 
 .site-content .pagination {
-  justify-content: center;
+  border-bottom: 5px dotted lightgrey;
+  width: 90%;
+  display: block;
+  margin: 50px auto;
+  font-weight: 800;
+  font-size: 50px !important;
+  /* justify-content: center;
   color: var(--text-gray);
-  margin: 4rem 0;
+  margin: 4rem 0; */
 }
 
 .site-content .pagination a {

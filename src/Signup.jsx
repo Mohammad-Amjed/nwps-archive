@@ -8,12 +8,14 @@ function Signup() {
     const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [Name, setName] = useState("")
     const signIn = (e) => {
       e.preventDefault();
       auth
         .signInWithEmailAndPassword(email, password)
         .then((auth) => {
-          console.log("the uset is", auth);
+
+          console.log("the uset is", auth.user);
           if (auth) {
             history.push("/newpost");
           }
@@ -28,15 +30,24 @@ function Signup() {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then((auth) => {
-          console.log(auth);
+          auth.user.updateProfile({
+            displayName: Name,})
+          console.log(auth.user);
           if (auth) {
-            history.push("/newpost");
+            {history.push("/"); };
           }
         })
         .catch((e) => {
           alert(e.message);
         });
     };
+    const handleLogout = ()=> {
+      auth.signOut().then(() => {
+        // Sign-out successful.
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
     return (
         <div>
 
@@ -59,6 +70,14 @@ function Signup() {
               setPassword(e.target.value);
             }}
           ></input>
+           <input
+            type="text"
+            value={Name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input>
+          
           <button
             type="submit"
             onClick={signIn}
@@ -75,6 +94,7 @@ function Signup() {
         >
           Create an Account
         </button>
+        <button type="submit" onClick={handleLogout}> Sumbit  <i class="fas fa-angle-right"></i></button>
       </div>
         </div>
     )

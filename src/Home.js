@@ -11,7 +11,7 @@ import Categoty from "./Categoty";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
 import SidePosts from "./SidePosts";
-import { db } from "./Firebase";
+import { db, timestamp } from "./Firebase";
 
 
   
@@ -21,7 +21,7 @@ import { db } from "./Firebase";
 function App() {
   const [snapshots, setSnapshots] = useState();
 useEffect(()=> {
-    db.collection("posts")
+    db.collection("posts").orderBy("date" , "desc")
      .get()
      .then((snapshot) => {
       setSnapshots(snapshot.docs)            
@@ -75,7 +75,7 @@ useEffect(()=> {
                 <div className="posts">
                 <div className="posts">
                   {  snapshots && snapshots.map((doc)=>(
-                      <PostContect img={doc.data().image} Admin={doc.data().admin} Date={"January 14, 2019"} CommentsNo={"2"} Title={doc.data().title} Body={doc.data().body} 
+                      <PostContect img={doc.data().image} Admin={doc.data().admin} Date={doc.data().date.toDate().toDateString()} CommentsNo={"2"} Title={doc.data().title} Body={doc.data().body} 
                        />))}          
                 
                 </div>

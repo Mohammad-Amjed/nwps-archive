@@ -35,6 +35,7 @@ function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
           },
          
         });
+        window.scrollTo(0, 0)
         history.push("/post");
       };
 

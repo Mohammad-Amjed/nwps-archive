@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
-import { db, timestamp, projectStorage } from './Firebase'
+import React, { useEffect, useState } from 'react'
+import { db, timestamp, projectStorage, auth } from './Firebase'
 import { v4 as uuidv4 } from 'uuid';
+import { useStateValue } from './StateProvider';
 function Blog() {
   const [image, setImage] = useState("");
   const [caption, setCaption] = useState("");
   const [progress, setProgress] = useState(0)
+  const [userName, setUserName] = useState(null)
+  const [user, setUser] = useState(null)
   
   function handleChange (e){
       if  (e.target.files[0]){
@@ -41,6 +44,7 @@ function Blog() {
                         image: url,
                         title,
                         date:timestamp(),
+                        admin: userName,
                       }).then()
                               setProgress(0);
                               setImage(null);
@@ -50,6 +54,19 @@ function Blog() {
           )
     
   }
+  useEffect(() => {
+    // will only run once when the app component loads...
+      
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        console.log(authUser.displayName)
+        setUserName(authUser.displayName)
+        setUser(true)
+      }
+  
+  
+    });
+  }, []);
   const initialState = ""
   const [date, setDate] = useState(initialState)
   const [body, setBody] = useState(initialState)
@@ -58,11 +75,13 @@ function Blog() {
   
   
 
-
+  
   
     return (
+      user ? 
       <div className="blogBody">
         <div className="blogBox">
+          <h2>Hello {userName}</h2>
           <div className="title">Post Details</div>
           <div className="content">
             <form action="#">
@@ -89,13 +108,14 @@ function Blog() {
             
               <div className="button">
                 <button type="submit" onClick={handleUpload}> Sumbit  <i class="fas fa-angle-right"></i></button>
+               
               </div>
             </form>
           </div>
           </div>
           </div>
       
-     
+       : <h1 style={{margin: "100px"}}>Sign in To get access to this page</h1>
     
     )
 }

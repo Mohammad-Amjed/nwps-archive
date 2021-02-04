@@ -24,7 +24,7 @@ function App() {
     <Route  path="/Signup">
     <Signup />
     </Route>
-    <Route  path="/Blog">
+    <Route  path="/newpost">
       <Nav />
     <Blog />
     <Footer2 />

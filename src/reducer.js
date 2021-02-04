@@ -16,6 +16,11 @@ const reducer = (state, action) => {
         
         post: action.item
       };
+      case "SET_USER":
+        return {
+          ...state,
+          user: action.user,
+        };
    
     default:
       return state;
