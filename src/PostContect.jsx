@@ -5,21 +5,8 @@ import { useStateValue } from './StateProvider';
 
 
 function PostContect({img,Admin,Date,CommentsNo,Title,Body}) {
-
-    // document.addEventListener('DOMContentLoaded', function(selector, maxLength) {
-    //     maxLength = 100;
-    //     selector = "limit"
-    //     const element =  document.getElementByClassName(selector),
-    //     truncated = element.innerText;
-
-    // if (truncated.length > maxLength) {
-    //     truncated = truncated.substr(0,maxLength) + '...';
-    // }
-    // return truncated;
-    //  }, false);
     
     const [{post}, dispatch] = useStateValue();
-    // console.log(post)
     const history = useHistory();
     const change = () => {
         

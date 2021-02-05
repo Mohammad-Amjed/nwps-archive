@@ -18,38 +18,46 @@ function Nav() {
         <nav className={Class} id="nav">
         <div className="nav-menu flex-row">
             <div className="nav-brand">
-                <Link to="/" className="text-gray">Blooger</Link>
+                <Link to="/" className="text-gray">NWPS archive</Link>
             </div>
             <div className="toggle-collapse">
                 <div className="toggle-icons">
                     <i className="fas fa-bars" onClick={ClassSet}></i>
                 </div>
             </div>
-            <div>
+            <div className="items-container">
                 <ul className="nav-items">
                     <li className="nav-link">
                         <Link to="#">Home</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="#">Category</Link>
+                        <Link to="#">About</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="#">Archive</Link>
+                        <Link to="signup">Log In</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="#">Pages</Link>
+                        <Link to="#">About PSD</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="#">Contact Us</Link>
+                        <Link to="#">Become a member</Link>
                     </li>
+                
+                   
+                  
+                  
                 </ul>
+         
+        
             </div>
-            <div className="social text-gray">
-                <Link to="#"><i className="fab fa-facebook-f"></i></Link>
+       
+             <div className="social text-gray">
+           
+              <Link to="#"><i className="fab fa-facebook-f"></i></Link>
                 <Link to="#"><i className="fab fa-instagram"></i></Link>
                 <Link to="#"><i className="fab fa-twitter"></i></Link>
-                <Link to="#"><i className="fab fa-youtube"></i></Link>
-            </div>
+                <Link to="#"><i className="fab fa-youtube"></i></Link>  
+            </div> 
         </div>
     </nav>
     )

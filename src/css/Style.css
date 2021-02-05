@@ -139,7 +139,7 @@ p {
   background-color: var(--midnight);
 }
 
-.nav .nav-items .nav-link:hover a {
+.nav-link:hover a {
   color: var(--white);
 }
 
@@ -156,11 +156,12 @@ p {
 }
 
 .nav .social i {
+  color: white;
   padding: 0 0.2rem;
 }
 
 .nav .social i:hover {
-  color: #a1c4cf;
+  /* color: #a1c4cf; */
 }
 
 /* -------x------- navbar ---------x------- */
@@ -169,15 +170,20 @@ p {
 
 /* --------------- Site title ---------------- */
 .site-title {
-  background: url("../assets/Background-image.png");
+  background: url("https://whichschooladvisor.com/media/large/2/a/2a61d026deee.jpeg");
+  /* background: url("https://droosonline.com/wp-content/uploads/2020/10/header-doodles-dark.jpg"); */
   background-size: cover;
-  height: 110vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
   padding-bottom: 30px;
+  background-position: center;
 }
-
+.site-shade {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
 .site-title .site-background {
   padding-top: 10rem;
   text-align: center;
@@ -552,6 +558,13 @@ footer.footer .move-up span:hover {
   .nav .nav-items {
     flex-direction: column;
   }
+  /* h1 {
+  }
+  .site-title .btn {
+    margin: 3rem !important;
+    font-size: 60px !important;
+    border-radius: 80px !important;
+  } */
 
   .nav .toggle-collapse {
     display: initial;
