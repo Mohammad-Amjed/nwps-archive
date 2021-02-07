@@ -27,6 +27,10 @@ useEffect(()=> {
       setSnapshots(snapshot.docs)            
      }
     )
+    ;
+    
+
+    
 }, []);
     
     useEffect(() => {
@@ -40,22 +44,22 @@ useEffect(()=> {
       const [Body, setBody] = useState("")
       const [Date, setDate] = useState()
       const [Admin, setAdmin] = useState("")
-               db.collection("posts")
-                  .get()
-                  .then((snapshot) => {
-                    snapshot.docs.map((doc)=>(
-                      console.log(doc.data().image)
-                      // <h2>test</h2>
-                      // <PostContect img={doc.data().image}   Admin={doc.data().admin} Date={"January 14, 2019"} CommentsNo={"2"} Title={doc.data().title} Body={doc.data().title}  />
-                    ))
-                  })
-                  db.collection("posts")
-                  .get()
-                  .then((snapshot) => {
-                    snapshot.docs.forEach((doc)=>{
-                      // <h2>test</h2>
-                        console.log(doc.data().image)
-                    }) } )
+              //  db.collection("posts")
+              //     .get()
+              //     .then((snapshot) => {
+              //       snapshot.docs.map((doc)=>(
+              //         console.log(doc.data().image)
+              //         // <h2>test</h2>
+              //         // <PostContect img={doc.data().image}   Admin={doc.data().admin} Date={"January 14, 2019"} CommentsNo={"2"} Title={doc.data().title} Body={doc.data().title}  />
+              //       ))
+              //     })
+              //     db.collection("posts")
+              //     .get()
+              //     .then((snapshot) => {
+              //       snapshot.docs.forEach((doc)=>{
+              //         // <h2>test</h2>
+              //           console.log(doc.data().image)
+              //       }) } )
                   
     
 
@@ -75,7 +79,7 @@ useEffect(()=> {
                 <div className="posts">
                 <div className="posts">
                   {  snapshots && snapshots.map((doc)=>(
-                      <PostContect img={doc.data().image} Admin={doc.data().admin} Date={doc.data().date.toDate().toDateString()} CommentsNo={"2"} Title={doc.data().title} Body={doc.data().body} 
+                      <PostContect img={doc.data().image} Admin={doc.data().admin} Date={doc.data().date.toDate().toDateString()} Category={doc.data().category} Title={doc.data().title} Body={doc.data().body} 
                        />))}          
                 
                 </div>

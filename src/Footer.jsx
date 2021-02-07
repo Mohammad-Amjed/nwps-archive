@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 
 function Footer() {
-    
+    const scroll = ()=>{
+        window.scrollTo({top:0,left:0,behavior:"smooth"})
+    }
  
     return (
         <div>
@@ -21,7 +23,7 @@ function Footer() {
                     <input type="text" placeholder="Email" /><span><i className="fas fa-chevron-right"></i></span>
                 </div>
             </div>
-            <div className="instagram" data-aos="fade-left" data-aos-delay="200">
+            {/* <div className="instagram" data-aos="fade-left" data-aos-delay="200">
                 <h2>Instagram</h2>
                 <div className="flex-row">
                     <img src={require("./assets/instagram/thumb-card3.png")} alt="insta1" />
@@ -33,27 +35,27 @@ function Footer() {
                     <img src={require("./assets/instagram/thumb-card7.png")} alt="insta5" />
                     <img src={require("./assets/instagram/thumb-card8.png")} alt="insta6" />
                 </div>
-            </div>
+            </div>  */}
             <div className="follow" data-aos="fade-left" data-aos-delay="200">
                 <h2>Follow us</h2>
                 <p>Let us be Social</p>
                 <div>
-                    <i className="fab fa-facebook-f"></i>
+                    <p style={{marginTop:"10px"}}>Comming Soon...</p>
+                    {/* <i className="fab fa-facebook-f"></i>
                     <i className="fab fa-twitter"></i>
                     <i className="fab fa-instagram"></i>
-                    <i className="fab fa-youtube"></i>
+                    <i className="fab fa-youtube"></i> */}
                 </div>
             </div>
         </div>
         <div className="rights flex-row">
-            <h4 className="text-gray">
-                Copyright ©2019 All rights reserved | made by
-                <Link to="www.youtube.com/c/dailytuition" target="_black">Daily Tuition <i className="fab fa-youtube"></i>
-                    Channel</Link>
-            </h4>
+        <h4 className="text-gray">
+                    Copyright ©2021 All rights reserved &nbsp;</h4>
+                    <h4><Link to="www.youtube.com/c/dailytuition" target="_black">  made by PSD progamming team </Link></h4>
+                
         </div>
         <div className="move-up">
-            <Link to="/"><i className="fas fa-arrow-circle-up fa-2x"></i></Link>
+            <Link to="/" onClick={scroll}><i className="fas fa-arrow-circle-up fa-2x"></i></Link>
         </div>
     </footer>
         </div>

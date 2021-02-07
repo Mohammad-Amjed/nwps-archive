@@ -1,11 +1,8 @@
-import React  from 'react'
-
+import React from 'react'
 import { useHistory, Link } from "react-router-dom";
 import { useStateValue } from './StateProvider';
 
-
-function PostContect({img,Admin,Date,Category,Title,Body}) {
-    
+function SidePost({img,Admin,Date,Category,Title,Body}) {
     const [{post}, dispatch] = useStateValue();
     const history = useHistory();
     const change = () => {
@@ -40,15 +37,16 @@ function PostContect({img,Admin,Date,Category,Title,Body}) {
         </div>
         <div className="post-title">
             <Link to="./about"></Link><a href="#">{Title}</a>
-            <p className="limit">{Body}
+            {/* <p className="limit">{Body}
+            </p> */}
+            <p className="limit">
             </p>
             <button className="btn post-btn" onClick={change}>Read More &nbsp; <i className="fas fa-arrow-right"></i></button> 
        
         </div>
        
     </div>
-   
     )
 }
 
-export default PostContect
+export default SidePost

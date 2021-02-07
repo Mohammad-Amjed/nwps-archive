@@ -28,19 +28,23 @@ function Nav() {
             <div className="items-container">
                 <ul className="nav-items">
                     <li className="nav-link">
-                        <Link to="#">Home</Link>
+                        <Link to="/">Home</Link>
                     </li>
                     <li className="nav-link">
                         <Link to="#">About</Link>
+                    </li>
+                   
+                    <li className="nav-link">
+                        <Link to="#">About PSD</Link>
+                    </li>
+                    <li className="nav-link">
+                        <a href="https://forms.gle/WbvQm7HHjPc4Ur2e7" target="_blank">Become a member</a>
                     </li>
                     <li className="nav-link">
                         <Link to="signup">Log In</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="#">About PSD</Link>
-                    </li>
-                    <li className="nav-link">
-                        <Link to="#">Become a member</Link>
+                        <Link to="newpost">Add Posts</Link>
                     </li>
                 
                    
@@ -54,7 +58,7 @@ function Nav() {
              <div className="social text-gray">
            
               <Link to="#"><i className="fab fa-facebook-f"></i></Link>
-                <Link to="#"><i className="fab fa-instagram"></i></Link>
+                <Link ><i className="fab fa-instagram"></i></Link>
                 <Link to="#"><i className="fab fa-twitter"></i></Link>
                 <Link to="#"><i className="fab fa-youtube"></i></Link>  
             </div> 

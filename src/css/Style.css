@@ -121,7 +121,6 @@ p {
 .collapse {
   height: 33rem;
 }
-
 .nav .nav-items {
   display: flex;
   margin: 0;
@@ -499,6 +498,7 @@ footer.footer .follow div i {
 }
 
 footer.footer .rights {
+  padding-bottom: 20px;
   justify-content: center;
   font-family: var(--Josefin);
 }
@@ -553,10 +553,13 @@ footer.footer .move-up span:hover {
 
 /*              Viewport less then or equal to 750px            */
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 810px) {
   .nav .nav-menu,
   .nav .nav-items {
     flex-direction: column;
+  }
+  .items-container {
+    margin-top: 20px;
   }
   /* h1 {
   }
@@ -597,8 +600,12 @@ footer.footer .move-up span:hover {
   }
 
   footer .rights {
-    padding: 0 1.4rem;
+    padding: 1.4rem;
+
     text-align: center;
+  }
+  .text-gray {
+    padding-bottom: 20px !important;
   }
 
   nav .toggle-collapse {
