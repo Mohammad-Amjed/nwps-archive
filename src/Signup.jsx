@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./Firebase";
@@ -9,6 +9,8 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [Name, setName] = useState("")
+    const [userName, setUserName] = useState(null)
+    const [user, setUser] = useState(null)
     const signIn = (e) => {
       e.preventDefault();
       auth
@@ -16,8 +18,10 @@ function Signup() {
         .then((auth) => {
 
           console.log("the uset is", auth.user);
+
           if (auth) {
-            history.push("/newpost");
+            history.push("/");
+            window.location.reload()
           }
         })
         .catch((e) => {
@@ -34,7 +38,8 @@ function Signup() {
             displayName: Name,})
           console.log(auth.user);
           if (auth) {
-            {history.push("/"); };
+            history.push("/"); 
+            window.location.reload();
           }
         })
         .catch((e) => {
@@ -43,15 +48,27 @@ function Signup() {
     };
     const handleLogout = ()=> {
       auth.signOut().then(() => {
-        // Sign-out successful.
+        window.location.reload();
       }).catch((error) => {
         // An error happened.
       });
     }
+    useEffect(() => {
+      // will only run once when the app component loads...
+        
+      auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          console.log(authUser.displayName)
+          setUserName(authUser.displayName)
+          setUser(true)
+        }
+    
+    
+      });
+    }, []);
     return (
-        <div>
-
-      <div className="login__container">
+      !user ?
+            <div className="login__container">
         <h1>Sign in</h1>
         <form className="login__form">
           <h5>E-mail</h5>
@@ -94,9 +111,14 @@ function Signup() {
         >
           Create an Account
         </button>
-        <button type="submit" onClick={handleLogout}> Sumbit  <i class="fas fa-angle-right"></i></button>
+       
       </div>
-        </div>
+      :
+      <div className="button">
+      <button className="logoutButton" type="submit" onClick={handleLogout}> Log out  <i class="fas fa-angle-right"></i></button>
+     
+    </div>
+        
     )
 }
 

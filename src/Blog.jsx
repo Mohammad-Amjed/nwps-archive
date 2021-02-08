@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { db, timestamp, projectStorage, auth } from './Firebase'
 import { v4 as uuidv4 } from 'uuid';
-import { useStateValue } from './StateProvider';
+import { Link } from 'react-router-dom';
 function Blog() {
   const [image, setImage] = useState("");
   const [caption, setCaption] = useState("");
@@ -115,7 +115,10 @@ function Blog() {
           </div>
           </div>
       
-       : <h1 style={{margin: "100px"}}>Sign in To get access to this page</h1>
+       : <div className="contain">
+         <h1 style={{padding: "28vh 10vh"}}><Link to="signup" >Sign in </Link>To get access to this page</h1>
+        
+       </div>
     
     )
 }

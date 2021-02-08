@@ -672,7 +672,27 @@ footer.footer .move-up span:hover {
   border-bottom-width: 2px; */
   transition: all 0.3s ease;
 }
+.logoutButton {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 15px 0 30px;
+  padding: 14px;
+  text-decoration: none;
 
+  color: #57068c;
+  border: 1px solid #57068c !important;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  font-family: var(--Lexend) !important;
+
+  transition: all 0.3s ease;
+}
+.logoutButton:hover {
+  transform: scale(0.99);
+  background-color: #57068c;
+  color: #fff;
+}
 form .button {
   height: 45px;
   margin: 35px 0;
@@ -722,4 +742,12 @@ textarea {
   background: #fbfbfb;
   margin-bottom: 30px;
   transition: all 0.3s ease;
+}
+.contain a {
+  color: var(--midnight);
+}
+
+.contain a:hover {
+  courser: pointer;
+  color: var(--text-light);
 }
