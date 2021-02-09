@@ -83,9 +83,9 @@ function Nav() {
                     <li className="nav-link">
                         <Link to="#">About PSD</Link>
                     </li>
-                    <li className="nav-link">
+                    {/* <li className="nav-link">
                         <a href="https://forms.gle/WbvQm7HHjPc4Ur2e7" target="_blank">Become a member</a>
-                    </li>
+                    </li> */}
                    
                     <li className="nav-link">
                         <Link to="newpost">Add Posts</Link>

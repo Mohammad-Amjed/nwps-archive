@@ -3,6 +3,11 @@ import { db, timestamp, projectStorage, auth } from './Firebase'
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 function Blog() {
+  const initialState = ""
+  const [date, setDate] = useState(initialState)
+  const [body, setBody] = useState(initialState)
+  const [title, setTitle] = useState(initialState)
+  const [category, setCategory] = useState(initialState)
   const [image, setImage] = useState("");
   const [caption, setCaption] = useState("");
   const [progress, setProgress] = useState(0)
@@ -43,11 +48,17 @@ function Blog() {
                         body,
                         image: url,
                         title,
+                        category,
                         date:timestamp(),
                         admin: userName,
-                      }).then()
+                      }).then(console.log("done")
+                      )
                               setProgress(0);
-                              setImage(null);
+                              setImage(initialState);
+                              setTitle(initialState);
+                              setBody(initialState);
+                              setCategory(initialState);
+                              document.getElementById("formImage").value = "";
                   })
               }
   
@@ -67,11 +78,7 @@ function Blog() {
   
     });
   }, []);
-  const initialState = ""
-  const [date, setDate] = useState(initialState)
-  const [body, setBody] = useState(initialState)
- 
-  const [title, setTitle] = useState(initialState)
+  
   
   
 
@@ -87,20 +94,31 @@ function Blog() {
             <form action="#">
               <div className="user-details">
                 <div className="input-box">
-                     <input type="file" onChange={handleChange} />
-
+                  <div>
+                  <span className="formImage">
+                     <input id="formImage"  type="file"  onChange={handleChange} />
+                     <span>Add an image</span>
+                     </span>
+                <span> &nbsp;{image.name}</span>
+                </div>
                 </div>
                
                 <div className="input-box">
                   <span className="details">Title</span>
-                  <input className="input" type="text" placeholder="Post Title" onChange={(e)=>{
+                  <input className="input" type="text" placeholder="Post Title" value={title} onChange={(e)=>{
                     setTitle(e.target.value)
+                  }} required />
+                </div>
+                <div className="input-box">
+                  <span className="details">Category</span>
+                  <input className="input" type="text" placeholder="Post Category" value={category} onChange={(e)=>{
+                    setCategory(e.target.value)
                   }} required />
                 </div>
                 
                 <div className="input-box">
                   <span className="details">Body</span>
-                  <textarea className="body-area" type="text" placeholder="Post Text"  onChange={(e)=>{
+                  <textarea className="body-area" type="text"value={body} placeholder="Post Text"  onChange={(e)=>{
                     setBody(e.target.value) }}required />
                 </div>
                 
