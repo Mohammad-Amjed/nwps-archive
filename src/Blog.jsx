@@ -2,24 +2,31 @@ import React, { useEffect, useState } from 'react'
 import { db, timestamp, projectStorage, auth } from './Firebase'
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import Modal from "react-modal"
+import Signup from './Signup';
 function Blog() {
   const initialState = ""
   const [date, setDate] = useState(initialState)
   const [body, setBody] = useState(initialState)
   const [title, setTitle] = useState(initialState)
   const [category, setCategory] = useState(initialState)
+  const [id, setId] = useState("id")
   const [image, setImage] = useState("");
   const [caption, setCaption] = useState("");
   const [progress, setProgress] = useState(0)
   const [userName, setUserName] = useState(null)
   const [user, setUser] = useState(null)
+  const [ModalIsOpen, setModalIsOpen] = useState(false)
+  
   
   function handleChange (e){
+    
       if  (e.target.files[0]){
           setImage(e.target.files[0]);
       }
   }
-  function handleUpload(){
+  function handleUpload(e){
+    e.preventDefault()
     const uploadTask =  projectStorage.ref(`images/${image.name}`).put(image)
       uploadTask.on(
           "state_changed",
@@ -39,7 +46,8 @@ function Blog() {
                   .ref("images")
                   .child(image.name)
                   .getDownloadURL()
-                  .then(url => {
+                  .then(setId(uuidv4())).then(
+                    url => {
                     
                       db
                       .collection("posts")
@@ -51,6 +59,7 @@ function Blog() {
                         category,
                         date:timestamp(),
                         admin: userName,
+                        id:uuidv4()
                       }).then(console.log("done")
                       )
                               setProgress(0);
@@ -78,12 +87,22 @@ function Blog() {
   
     });
   }, []);
-  
-  
-  
-
-  
-  
+    const OpenModal = ()=> {
+      setModalIsOpen(true)
+  }
+    const closeModal = ()=> {
+    setModalIsOpen(false)
+  }
+  const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
     return (
       user ? 
       <div className="blogBody">
@@ -134,7 +153,10 @@ function Blog() {
           </div>
       
        : <div className="contain">
-         <h1 style={{padding: "28vh 10vh"}}><Link to="signup" >Sign in </Link>To get access to this page</h1>
+         <h1 style={{padding: "28vh 10vh"}}><Link onClick={OpenModal} >Sign in </Link>To get access to this page</h1>
+         <Modal   isOpen={ModalIsOpen} onRequestClose={closeModal} style={customStyles}>
+            <Signup />
+         </Modal>
         
        </div>
     

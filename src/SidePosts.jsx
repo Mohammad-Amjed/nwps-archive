@@ -9,7 +9,7 @@ import SidePost from './SidePost';
 function SidePosts() {
   const [snapshots, setSnapshots] = useState();
   useEffect(()=> {
-      db.collection("posts")
+      db.collection("popular posts")
        .get()
        .then((snapshot) => {
         setSnapshots(snapshot.docs)            

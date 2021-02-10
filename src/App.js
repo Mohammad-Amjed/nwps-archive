@@ -7,6 +7,7 @@ import Nav from './Nav'
 import PostPage from './PostPage'
 import Signup from './Signup'
 import Blog from "./Blog"
+import About from './About'
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
    <Footer2 />
     
     </Route>
-    <Route  path="/Signup">
-    <Signup />
+    <Route  path="/about">
+      {/* <Nav /> */}
+    <About/>
     </Route>
     <Route  path="/newpost">
       <Nav />

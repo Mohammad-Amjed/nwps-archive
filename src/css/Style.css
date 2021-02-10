@@ -1,5 +1,7 @@
 @import url("../css/fonts.css");
-
+* {
+  scroll-behavior: smooth;
+}
 .app {
   margin: 0%;
   box-sizing: border-box;
@@ -677,6 +679,33 @@ footer.footer .move-up span:hover {
   border-bottom-width: 2px; */
   transition: all 0.3s ease;
 }
+.login__form input {
+  font: 400 15px "Gotham SSm A", "Gotham SSm B", sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: calc(100% - 15px);
+  height: 45px;
+  padding: 0 10px;
+  color: #5c5c5c;
+  border: 1px solid #ddd4d4;
+  border-radius: 0;
+  background: #fbfbfb;
+  /* height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px; */
+  transition: all 0.3s ease;
+}
+.login__container h1 {
+  font-family: var(--Livvic);
+  /* font-weight: normal; */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
 .formImage {
   display: inline-block;
 
@@ -714,7 +743,7 @@ footer.footer .move-up span:hover {
 .logoutButton {
   display: inline-block;
   box-sizing: border-box;
-  margin: 15px 0 30px;
+  margin: 15px 0;
   padding: 14px;
   text-decoration: none;
 
@@ -789,4 +818,46 @@ textarea {
 .contain a:hover {
   courser: pointer;
   color: var(--text-light);
+}
+.about-z-index {
+  position: relative;
+}
+.about {
+  z-index: -10;
+  height: 100vh;
+  text-align: center;
+  background: #06beb6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #48b1bf,
+    #06beb6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #48b1bf,
+    #06beb6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.about__container {
+  padding-top: 250px;
+  color: white;
+}
+.about-nav {
+  text-align: left !important;
+}
+.about button {
+  margin-top: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+.about button:hover {
+  background-color: white;
+  color: #48b1bf;
+}
+.delete {
+  margin-left: 30px;
+  background-color: red !important;
+  border-radius: 0;
+  padding: 0.7rem 1.5rem;
 }

@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { db } from './Firebase'
+import { v4 as uuidv4 } from 'uuid';
 
 
 function Footer() {
+    const [email, setEmail] = useState("");
+    const [className, setClassName] = useState();
     const scroll = ()=>{
-        window.scrollTo({top:0,left:0,behavior:"smooth"})
+        window.scrollTo({top:0,behavior:"smooth"})
     }
- 
+    const handleSubmit = ()=>{
+    
+        db
+        .collection("Newsletter")
+        .doc(email)
+        .set({
+            email
+        }).then(console.log("done"))
+        setEmail("")
+    }
     return (
         <div>
             <footer className="footer">
@@ -20,7 +33,7 @@ function Footer() {
                 <h2>Newsletter</h2>
                 <p>Stay update with our latest</p>
                 <div className="form-element">
-                    <input type="text" placeholder="Email" /><span><i className="fas fa-chevron-right"></i></span>
+                    <input  placeholder="Email" value={email} type="email" value={email} onChange={(e) => {setEmail(e.target.value);}} /><span onClick={handleSubmit}><i className="fas fa-chevron-right"></i></span>
                 </div>
             </div>
             {/* <div className="instagram" data-aos="fade-left" data-aos-delay="200">

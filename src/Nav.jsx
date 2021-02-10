@@ -77,11 +77,11 @@ function Nav() {
                         <Link to="/">Home</Link>
                     </li>
                     <li className="nav-link">
-                        <Link to="#">About</Link>
+                        <Link to="/about">About</Link>
                     </li>
                    
                     <li className="nav-link">
-                        <Link to="#">About PSD</Link>
+                        <Link to="/about">About PSD</Link>
                     </li>
                     {/* <li className="nav-link">
                         <a href="https://forms.gle/WbvQm7HHjPc4Ur2e7" target="_blank">Become a member</a>

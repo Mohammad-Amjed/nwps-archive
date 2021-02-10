@@ -73,44 +73,49 @@ function Signup() {
         <form className="login__form">
           <h5>E-mail</h5>
           <input
+          
             type="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
+              
             }}
           ></input>
           <h5>password</h5>
           <input
+            
             type="password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           ></input>
+            {/* <h5>Name</h5>
            <input
+            
             type="text"
             value={Name}
             onChange={(e) => {
               setName(e.target.value);
             }}
-          ></input>
+          ></input> */}
           
           <button
             type="submit"
             onClick={signIn}
-            className="login__signInButton"
+            className="login__signInButton logoutButton"
           >
             Sign In
           </button>
    
         </form>
-        <button
+        {/* <button
           type="submit"
           onClick={register}
           className="login__registerButton"
         >
           Create an Account
-        </button>
+        </button> */}
        
       </div>
       :

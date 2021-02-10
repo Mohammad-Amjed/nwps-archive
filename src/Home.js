@@ -77,9 +77,9 @@ useEffect(()=> {
             <div className="site-content">
            
                 <div className="posts">
-                <div className="posts">
+                <div className="posts" id="posts">
                   {  snapshots && snapshots.map((doc)=>(
-                      <PostContect img={doc.data().image} Admin={doc.data().admin} Date={doc.data().date.toDate().toDateString()} Category={doc.data().category} Title={doc.data().title} Body={doc.data().body} 
+                      <PostContect img={doc.data().image} Admin={doc.data().admin} Date={doc.data().date.toDate().toDateString()} Category={doc.data().category} Title={doc.data().title} Body={doc.data().body} id={doc.data().id} 
                        />))}          
                 
                 </div>

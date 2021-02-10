@@ -15,7 +15,8 @@ function SidePost({img,Admin,Date,Category,Title,Body}) {
             Date : Date,
             Category : Category,
             Title : Title,
-            Body : Body
+            Body : Body,
+            delete:"none"
           },
          
         });
