@@ -17,7 +17,8 @@ function Blog() {
   const [userName, setUserName] = useState(null)
   const [user, setUser] = useState(null)
   const [ModalIsOpen, setModalIsOpen] = useState(false)
-  
+  const [Class, setClass] = useState("hidden-validation")
+
   
   function handleChange (e){
     
@@ -26,6 +27,7 @@ function Blog() {
       }
   }
   function handleUpload(e){
+    if (image!="" && title!=initialState && body!=initialState && category!=initialState ){
     e.preventDefault()
     const uploadTask =  projectStorage.ref(`images/${image.name}`).put(image)
       uploadTask.on(
@@ -68,10 +70,14 @@ function Blog() {
                               setBody(initialState);
                               setCategory(initialState);
                               document.getElementById("formImage").value = "";
+                              setClass("hidden-validation")
                   })
               }
   
           )
+            }else{
+              setClass("validation")
+            }
     
   }
   useEffect(() => {
@@ -109,13 +115,14 @@ function Blog() {
         <div className="blogBox">
           <h2>Hello {userName}</h2>
           <div className="title">Post Details</div>
+          <small className={Class}>please fill the empty fields</small>
           <div className="content">
             <form action="#">
               <div className="user-details">
                 <div className="input-box">
                   <div>
                   <span className="formImage">
-                     <input id="formImage"  type="file"  onChange={handleChange} />
+                     <input id="formImage"  type="file"  onChange={handleChange}  required/>
                      <span>Add an image</span>
                      </span>
                 <span> &nbsp;{image.name}</span>
@@ -138,7 +145,7 @@ function Blog() {
                 <div className="input-box">
                   <span className="details">Body</span>
                   <textarea className="body-area" type="text"value={body} placeholder="Post Text"  onChange={(e)=>{
-                    setBody(e.target.value) }}required />
+                    setBody(e.target.value) }} required />
                 </div>
                 
               </div>

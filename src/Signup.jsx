@@ -11,8 +11,11 @@ function Signup() {
     const [Name, setName] = useState("")
     const [userName, setUserName] = useState(null)
     const [user, setUser] = useState(null)
+    const [Class, setClass] = useState("hidden-validation")
     const signIn = (e) => {
       e.preventDefault();
+      if (email!="" && password!=""){
+      
       auth
         .signInWithEmailAndPassword(email, password)
         .then((auth) => {
@@ -27,7 +30,10 @@ function Signup() {
         .catch((e) => {
           alert(e.message);
         });
-    };
+        setClass("hidden-validation")
+    }else{
+      setClass("validation")
+    }};
     const register = (e) => {
       e.preventDefault();
   
@@ -70,6 +76,7 @@ function Signup() {
       !user ?
             <div className="login__container">
         <h1>Sign in</h1>
+        <small className={Class}>please fill the empty fields</small>
         <form className="login__form">
           <h5>E-mail</h5>
           <input

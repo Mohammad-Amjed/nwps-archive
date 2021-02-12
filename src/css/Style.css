@@ -861,3 +861,12 @@ textarea {
   border-radius: 0;
   padding: 0.7rem 1.5rem;
 }
+.hidden-validation {
+  display: none;
+}
+.validation {
+  color: red;
+  display: block;
+  padding: 10px;
+  font-weight: bold;
+}

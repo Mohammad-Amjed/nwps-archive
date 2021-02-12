@@ -4,19 +4,25 @@ import { db } from './Firebase';
 
 function Footer2() {
     const [email, setEmail] = useState("");
-    const [className, setClassName] = useState();
+    const [Class, setClass] = useState("hidden-validation")
+    const [userName, setUserName] = useState(null)
+
     const scroll = ()=>{
         window.scrollTo({top:0,left:0,behavior:"smooth"})
     }
     const handleSubmit = ()=>{
-    
-        db
-        .collection("Newsletter")
-        .doc(email)
-        .set({
-            email
-        }).then(console.log("done"))
-        setEmail("")
+        if (email===""){
+            setClass("validation")
+        }else{
+            db
+            .collection("Newsletter")
+            .doc(email)
+            .set({
+                email
+            }).then(console.log("done"))
+            setEmail("")
+            setClass("hidden-validation")
+        }
     }
     return (
         <div>
@@ -33,6 +39,7 @@ function Footer2() {
                 <div className="form-element">
                     <input  placeholder="Email" value={email} type="email" value={email} onChange={(e) => {setEmail(e.target.value);}} /><span onClick={handleSubmit}><i className="fas fa-chevron-right"></i></span>
                 </div>
+                <small className={Class}>please fill the empty fields</small>
             </div>
             {/* <div className="instagram" data-aos="fade-left" data-aos-delay="200">
                 <h2>Instagram</h2>
