@@ -3,6 +3,7 @@ import { Link  } from "react-router-dom";
 import { auth } from './Firebase';
 import Modal from 'react-modal';
 import Signup from "./Signup"
+import Click from './Click';
 
 
 
@@ -61,6 +62,7 @@ function Nav() {
     return (
         
         <nav className={Class} id="nav">
+            
             
         <div className="nav-menu flex-row">
             <div className="nav-brand">

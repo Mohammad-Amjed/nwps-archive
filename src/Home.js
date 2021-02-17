@@ -100,15 +100,7 @@ useEffect(()=> {
                 </aside>
             </div>
         </section>
-
-       
-    <Footer />
-
-
-
-  
-
-
+        <Footer />
     </div>
    
    

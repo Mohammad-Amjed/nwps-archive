@@ -1,37 +1,41 @@
 import React from 'react'
-
 import { Route, BrowserRouter as Router } from 'react-router-dom'
-import Footer2 from './Footer2'
 import Home from "./Home"
 import Nav from './Nav'
 import PostPage from './PostPage'
-import Signup from './Signup'
 import Blog from "./Blog"
 import About from './About'
+import Footer from './Footer'
+import Click from './Click'
 
 function App() {
   return (
     
        <Router>
     <Route exact path="/">
+    <Click />
     <Home />
     </Route>
+
     <Route path="/post">
+    <Click />
     <Nav/>
     <PostPage/>
-   <Footer2 />
-    
+   
     </Route>
+    
     <Route  path="/about">
-      {/* <Nav /> */}
+    <Click />
     <About/>
     </Route>
+
     <Route  path="/newpost">
+    <Click />
       <Nav />
     <Blog />
-    <Footer2 />
-    </Route>
     
+    </Route>
+
     </Router>
     
   )

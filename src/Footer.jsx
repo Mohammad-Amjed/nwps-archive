@@ -76,7 +76,7 @@ function Footer() {
                 
         </div>
         <div className="move-up">
-            <Link to="/" onClick={scroll}><i className="fas fa-arrow-circle-up fa-2x"></i></Link>
+            <Link onClick={scroll}><i className="fas fa-arrow-circle-up fa-2x"></i></Link>
         </div>
     </footer>
         </div>

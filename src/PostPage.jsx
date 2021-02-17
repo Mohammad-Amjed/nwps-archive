@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { useStateValue } from './StateProvider';
 import { auth, db } from './Firebase';
 import {useHistory } from "react-router-dom"
+import Footer from './Footer';
 
 
 
@@ -86,7 +87,8 @@ function PostPage() {
             </div>
         </div>   
         </section>
-        </div>
+        <Footer />
+ </div>
     )
 }
 export default PostPage

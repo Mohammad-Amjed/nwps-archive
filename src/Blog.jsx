@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import Modal from "react-modal"
 import Signup from './Signup';
+import Footer from './Footer';
 function Blog() {
   const initialState = ""
   const [date, setDate] = useState(initialState)
@@ -157,6 +158,7 @@ function Blog() {
             </form>
           </div>
           </div>
+          <Footer />
           </div>
       
        : <div className="contain">
@@ -164,7 +166,7 @@ function Blog() {
          <Modal   isOpen={ModalIsOpen} onRequestClose={closeModal} style={customStyles}>
             <Signup />
          </Modal>
-        
+         <Footer />
        </div>
     
     )
