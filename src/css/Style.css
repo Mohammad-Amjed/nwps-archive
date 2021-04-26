@@ -394,8 +394,11 @@ section .container .owl-nav {
 .popular-post .post-title a {
   font-size: 1rem;
 }
-.postPage p {
+.postPage article {
   margin-top: 50px;
+}
+.postPage p {
+  padding-bottom: 10px;
 }
 
 .newsletter {
@@ -887,4 +890,45 @@ textarea {
   display: block;
   padding: 30px;
   padding-right: 150px;
+}
+
+#wave {
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 1);
+  width: 100vh;
+  height: 100%;
+}
+
+.dot {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 3px;
+  background: #000;
+  animation: wave 0.5s linear infinite;
+  display: inline-block;
+}
+.dot:nth-child(2) {
+  animation-delay: -0.9s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: -1.8s;
+}
+
+@keyframes wave {
+  0%,
+  60%,
+  100% {
+    transform: initial;
+  }
+
+  30% {
+    transform: translateY(-7px);
+  }
 }

@@ -97,7 +97,7 @@ function Signup() {
               setPassword(e.target.value);
             }}
           ></input>
-            {/* <h5>Name</h5>
+            <h5>Name</h5>
            <input
             
             type="text"
@@ -105,7 +105,7 @@ function Signup() {
             onChange={(e) => {
               setName(e.target.value);
             }}
-          ></input> */}
+          ></input>
           
           <button
             type="submit"
@@ -116,13 +116,13 @@ function Signup() {
           </button>
    
         </form>
-        {/* <button
+        <button
           type="submit"
           onClick={register}
           className="login__registerButton"
         >
           Create an Account
-        </button> */}
+        </button>
        
       </div>
       :

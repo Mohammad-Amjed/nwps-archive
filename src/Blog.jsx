@@ -19,6 +19,7 @@ function Blog() {
   const [user, setUser] = useState(null)
   const [ModalIsOpen, setModalIsOpen] = useState(false)
   const [Class, setClass] = useState("hidden-validation")
+  const [IsDisabled, setIsDisabled] = useState(false)
 
   
   function handleChange (e){
@@ -27,7 +28,33 @@ function Blog() {
           setImage(e.target.files[0]);
       }
   }
+
+  
+// const handleUploada = (e) => {
+//   e.preventDefault()
+
+//   projectStorage.ref().constructor.prototype.putFiles = function(files) { 
+//     var ref = this;
+//     const list = Object.values(files)
+//     console.log(list)
+//     return Promise.all(
+//       list.map(function(file) {
+//       return ref.child(file.name).put(file)
+
+//     })
+//     );
+//   }
+  
+//   // use it!
+//   projectStorage.ref().putFiles(image).getDownloadURL().then(url=>console.log(url)).then(function(metadatas) {
+    
+//     // Get an array of file metadata
+//   }).catch(function(error) {
+//     // If any task fails, handle this
+//   });
+// }
   function handleUpload(e){
+    setIsDisabled(true)
     if (image!="" && title!=initialState && body!=initialState && category!=initialState ){
     e.preventDefault()
     const uploadTask =  projectStorage.ref(`images/${image.name}`).put(image)
@@ -63,7 +90,7 @@ function Blog() {
                         date:timestamp(),
                         admin: userName,
                         id:uuidv4()
-                      }).then(console.log("done")
+                      }).then(setIsDisabled(false)
                       )
                               setProgress(0);
                               setImage(initialState);
@@ -78,6 +105,7 @@ function Blog() {
           )
             }else{
               setClass("validation")
+              setIsDisabled(false)
             }
     
   }
@@ -152,7 +180,11 @@ function Blog() {
               </div>
             
               <div className="button">
-                <button type="submit" onClick={handleUpload}> Sumbit  <i class="fas fa-angle-right"></i></button>
+              <button type="submit" onClick={handleUpload} disabled={IsDisabled}>
+                 { 
+              !IsDisabled ? "  Submit  " : "  Loading  "
+              }
+               <i class="fas fa-angle-right"></i></button>
                
               </div>
             </form>
@@ -166,7 +198,9 @@ function Blog() {
          <Modal   isOpen={ModalIsOpen} onRequestClose={closeModal} style={customStyles}>
             <Signup />
          </Modal>
+         
          <Footer />
+
        </div>
     
     )

@@ -47,6 +47,13 @@ function PostPage() {
         });
         });
     }
+
+    var a = post && post.Body.split(".");
+    
+    var toAppend = "";
+
+    var t = toAppend;
+    console.log(t)
     // const change  = ()=> {
     //     dispatch()
     // }
@@ -68,12 +75,22 @@ function PostPage() {
             <div className="post-info flex-row">
                 <span><i className="fas fa-user text-gray"></i>&nbsp;&nbsp;{post.Admin}</span>
                 <span><i className="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14, 2019</span>
-                <span>2 Commets</span>
+                <span>{post.Category}</span>
             </div>
         </div>
         <div  className="post-title">
             <Link to="./about"></Link><a ref={titleRef} href="#">{post.Title}</a>
-            <p>{post.Body}</p>
+     {   post &&    <article>
+           { 
+                a.pop(),
+                a.map(function (t, i){
+
+                    return<p>{t}.</p>
+                })
+                
+            }
+             </article>   }
+           
         
         </div>
     
