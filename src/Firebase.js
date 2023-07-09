@@ -2,7 +2,7 @@ import firebase from "firebase";;
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBJ_3KWGHUpIJ6rTNmg5PE_sEsSw797PJ0",
+    apiKey: "API KEY",
     authDomain: "nwps-archive.firebaseapp.com",
     projectId: "nwps-archive",
     storageBucket: "nwps-archive.appspot.com",
